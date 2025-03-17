@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite xmlns:con="http://eviware.com/soapui/config" name="Geocode" id="db85518c-52d3-43ac-911b-ebf59b611b14">
+  <con:settings>
+    <con:setting id="db85518c-52d3-43ac-911b-ebf59b611b14fileName">Geocode</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

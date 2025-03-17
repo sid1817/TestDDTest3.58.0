@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" activeEnvironment="Default environment" name="Data Driven Sample Project" resourceRoot="" soapui-version="6.0.0" id="c3043780-3ec7-4e2f-bccc-c7145ce8c7b3" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" compositeProjectFormat="1.3" projectVersion="" updated="3.58.0">
+  <con:description>Demonstrates how to read data from a data source and use it for request simulation.</con:description>
+  <con:settings>
+    <con:setting id="c3043780-3ec7-4e2f-bccc-c7145ce8c7b3fileName">Data-Driven-Sample-Project-readyapi-project</con:setting>
+  </con:settings>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>

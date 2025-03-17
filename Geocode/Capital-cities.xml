@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Capital cities" searchProperties="true" id="e4bca831-08b1-4d9a-935e-96778bab84bd">
+  <con:settings>
+    <con:setting id="e4bca831-08b1-4d9a-935e-96778bab84bdfileName">Capital-cities</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="c0fd31dd-d8e7-499a-a345-ff2f27a30d6e">
+    <con:settings/>
+    <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:DataSourceStep">
+      <con:dataSource type="Grid">
+        <con:configuration>
+          <check><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry></xml-fragment>]]></check>
+          <row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">Beijing&lt;/con:entry></row>
+          <row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">Tokyo&lt;/con:entry></row>
+          <row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">Moscow&lt;/con:entry></row>
+          <row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">Seoul&lt;/con:entry></row>
+          <row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">Jakarta&lt;/con:entry></row>
+          <recognizeAsPlainText>true</recognizeAsPlainText>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>cityName</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Geocode search" id="d65e5c0f-817e-4ffe-9632-99ea74aca507">
+    <con:settings/>
+    <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="Google Maps" resourcePath="/maps/api/geocode/xml" methodName="Search" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Geocode search" mediaType="application/json" id="783f0d6e-9aa1-49f3-87f5-7d26341563c8">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="b042eb29-2a1b-4afd-ac2e-34c4c0fab308">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters>
+          <con:entry key="sensor" value="false"/>
+          <con:entry key="address" value="${Data Source#cityName}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>address</con:entry>
+          <con:entry>sensor</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="141f97c6-f98a-4d98-b8c7-a5e43bcda37f">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>Geocode search</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>c0fd31dd-d8e7-499a-a345-ff2f27a30d6e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

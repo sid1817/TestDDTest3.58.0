@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" name="Geocode (XML)" path="/maps/api/geocode/xml" id="f5fedd16-fb5b-4dc1-9376-3d5a9955f480">
+  <con:settings>
+    <con:setting id="f5fedd16-fb5b-4dc1-9376-3d5a9955f480fileName">Geocode-%28XML%29</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter>
+      <con:name>address</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter>
+      <con:name>sensor</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Search" method="GET" id="9adb5e79-229e-4fee-8f8f-a78cc651ba9e">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml; charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>GeocodeResponse</con:element>
+    </con:representation>
+    <con:request name="Geocode search" mediaType="application/json" id="68e86c32-b664-4b84-9e96-d2ec83d91eb1">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+      </con:settings>
+      <con:endpoint>http://maps.googleapis.com</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:jmsPropertyConfig/>
+      <con:parameters>
+        <entry xmlns="http://eviware.com/soapui/config" key="sensor" value="false"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>address</con:entry>
+        <con:entry>sensor</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>
